@@ -1,20 +1,20 @@
 async function getMoves(moves){
     footerP("Fetching moves")
-    const rawMoves = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/moves/battle_moves.c`)
+    const rawMoves = await fetch(`./data/moves/battle_moves.c`)
     const textMoves = await rawMoves.text()
 
     return regexMoves(textMoves, moves)
 }
 
 async function getMovesDescription(moves){
-    const rawMovesDescription = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/moves/attack_descriptions.string`)
+    const rawMovesDescription = await fetch(`./data/moves/attack_descriptions.string`)
     const textMovesDescription = await rawMovesDescription.text()
 
     return regexMovesDescription(textMovesDescription, moves)
 }
 
 async function getMovesIngameName(moves){
-    const rawMovesIngameName = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/moves/attack_name_table%20long.string`)
+    const rawMovesIngameName = await fetch(`./data/moves/attack_name_table%20long.string`)
     const textMovesIngameName = await rawMovesIngameName.text()
 
     return regexMovesIngameName(textMovesIngameName, moves)
@@ -28,7 +28,7 @@ async function getVanillaMovesDescription(moves){
 }
 
 async function getMovesFlags(moves){
-    const rawMovesFlags = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/moves/move_tables.s`)
+    const rawMovesFlags = await fetch(`./data/moves/move_tables.s`)
     const textMovesFlags = await rawMovesFlags.text()
 
     return regexMovesFlags(textMovesFlags, moves)

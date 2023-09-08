@@ -1,6 +1,6 @@
 async function getAbilities(abilities){
     footerP("Fetching abilities")
-    const rawAbilities = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/abilities/abilities.h`)
+    const rawAbilities = await fetch(`./data/abilities/abilities.h`)
     const textAbilities = await rawAbilities.text()
 
     return regexAbilities(textAbilities, abilities)
@@ -15,21 +15,21 @@ async function getVanillaAbilitiesDescription(abilities){
 }
 
 async function getAbilitiesIngameName(abilities){
-    const rawAbilitiesIngameName = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/abilities/ability_name_table.string`)
+    const rawAbilitiesIngameName = await fetch(`./data/abilities/ability_name_table.string`)
     const textAbilitiesIngameName = await rawAbilitiesIngameName.text()
 
     return regexAbilitiesIngameName(textAbilitiesIngameName, abilities)
 }
 
 async function getAbilitiesDescription(abilities){
-    const rawAbilitiesDescription = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/abilities/ability_descriptions.string`)
+    const rawAbilitiesDescription = await fetch(`./data/abilities/ability_descriptions.string`)
     const textAbilitiesDescription = await rawAbilitiesDescription.text()
 
     return regexAbilitiesDescription(textAbilitiesDescription, abilities)
 }
 
 async function getNewAbilities(abilities){
-    const rawNewAbilities = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/abilities/duplicate_abilities.h`)
+    const rawNewAbilities = await fetch(`./data/abilities/duplicate_abilities.h`)
     const textNewAbilities = await rawNewAbilities.text()
 
     return regexNewAbilities(textNewAbilities, abilities)   

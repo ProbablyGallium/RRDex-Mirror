@@ -1,20 +1,20 @@
 async function getWildLocations(locations){
     footerP("Fetching locations")
-    const rawWildLocations = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/locations/wild_encounter_tables.c`)
+    const rawWildLocations = await fetch(`./data/locations/wild_encounter_tables.c`)
     const textWildLocations = await rawWildLocations.text()
 
     return regexWildLocations(textWildLocations, locations)   
 }
 
 async function getRaidLocations(locations){
-    const rawRaidLocations = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/locations/raid_encounters.h`)
+    const rawRaidLocations = await fetch(`./data/locations/raid_encounters.h`)
     const textRaidLocations = await rawRaidLocations.text()
 
     return regexRaidLocations(textRaidLocations, locations)   
 }
 
 async function getManualLocations(locations){
-    const rawManualLocations = await fetch(`https://raw.githubusercontent.com/${repo}/main/data/locations/manualLocations.js`)
+    const rawManualLocations = await fetch(`./data/locations/manualLocations.js`)
     const jsonManualLocations = await rawManualLocations.json()
 
     return regexManualLocations(jsonManualLocations, locations)   

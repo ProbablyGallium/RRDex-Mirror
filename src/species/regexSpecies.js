@@ -320,7 +320,7 @@ async function regexTMHMLearnsets(textTMHMLearnsets, species, start, end){
                 else if(move === "Drainingkiss")
                     move = "Draining Kiss"
 
-                const rawTMHM = fetch(`https://raw.githubusercontent.com/ydarissep/Radical-Red-Pokedex/main/data/species/tm_compatibility/${count} - ${move}.txt`)
+                const rawTMHM = fetch(`./data/species/tm_compatibility/${count} - ${move}.txt`)
                 .then(promises => {
                     const textTMHM = promises.text()
                     .then(promises => {
@@ -375,7 +375,7 @@ async function regexTutorLearnsets(textTutorLearnsets, species, start, end){
                 count++
 
                 if(filterUnusedTutor.includes(move)){
-                    const rawTutor = fetch(`https://raw.githubusercontent.com/ydarissep/Radical-Red-Pokedex/main/data/species/tutor_compatibility/${count} - ${move}.txt`)
+                    const rawTutor = fetch(`./data/species/tutor_compatibility/${count} - ${move}.txt`)
                     .then(promises => {
                         const textTutor = promises.text()
                         .then(promises => {
@@ -589,7 +589,7 @@ async function regexSprite(textSprite, species){
 
             const matchURL = line.match(/gFrontSprite\w+Tiles/i)
             if(matchURL){
-                let url = `https://raw.githubusercontent.com/ydarissep/Radical-Red-Pokedex/main/data/species/frontspr/${matchURL[0].replace("Tiles", ".png")}`
+                let url = `./data/species/frontspr/${matchURL[0].replace("Tiles", ".png")}`
 
                 species[name]["sprite"] = url
             }
